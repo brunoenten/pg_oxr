@@ -1,0 +1,6 @@
+default_version = '0.1'
+module_pathname = '$libdir/oxr'
+relocatable = false
+schema = 'oxr'
+requires = 'http'
+comment = 'OpenExchangeRates API client for PostgreSQL'
