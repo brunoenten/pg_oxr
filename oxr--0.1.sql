@@ -78,8 +78,6 @@ $$;
 
 COMMENT ON FUNCTION oxr.get_latest_rate(base_currency char(3), price_currency char(3)) IS 'Get latest rate from a pair of currencies';
 
-
-
 -- Table: oxr.historical_rates
 CREATE TABLE oxr.historical_rates
 (
@@ -87,7 +85,7 @@ CREATE TABLE oxr.historical_rates
     price_currency character(3) COLLATE pg_catalog."default" NOT NULL,
     price_on date NOT NULL,
     rate numeric NOT NULL
-)
+);
 
 COMMENT ON TABLE oxr.historical_rates IS 'Cache storage for historical rates';
 
@@ -136,7 +134,7 @@ BEGIN
 END;
 $$;
 
-COMMENT ON FUNCTION oxr.oxr.get_historical_rate(base_currency char(3), price_currency char(3), price_from date) IS 'Get historical rate from a pair of currencies on a given date';
+COMMENT ON FUNCTION oxr.get_historical_rate(base_currency char(3), price_currency char(3), price_from date) IS 'Get historical rate from a pair of currencies on a given date';
 
 -- Set app_id
 CREATE FUNCTION oxr.set_app_id(app_id text) RETURNS void
@@ -145,6 +143,6 @@ CREATE FUNCTION oxr.set_app_id(app_id text) RETURNS void
 SELECT oxr.set_config('app_id', app_id);
 $$;
 
-COMMENT ON FUNCTION oxr.set_app_id(app_id text) IS 'Stores OpenExchangeRates app ID into calling role custom data.'
+COMMENT ON FUNCTION oxr.set_app_id(app_id text) IS 'Stores OpenExchangeRates app ID into calling role custom data.';
 
 
